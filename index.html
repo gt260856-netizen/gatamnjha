@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4f8f5">
+<meta name="description" content="Gautam Jha - Explore stock market fundamentals, financial literacy, chart concepts and risk awareness through educational content.">
+<title>Gautam Jha | Market Education</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2231594831102088');
+fbq('track','PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2231594831102088&amp;ev=PageView&amp;noscript=1"
+alt="">
+</noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+:root{
+  --paper:#f4f8f5;
+  --white:#fff;
+  --ink:#172a24;
+  --green:#087e58;
+  --green2:#10a575;
+  --mint:#dff5e9;
+  --muted:#61756d;
+  --border:#dce9e0;
+}
+*{box-sizing:border-box}
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+}
+body{
+  overflow:hidden;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:system-ui,-apple-system,
+  "Segoe UI",sans-serif;
+}
+.page{
+  width:100%;
+  height:100vh;
+  height:100svh;
+  height:100dvh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 95% 5%,#b5e9ce88,transparent 40%),
+    radial-gradient(circle at 0% 100%,#d3e5dc,transparent 45%),
+    var(--paper);
+}
+.shell{
+  width:100%;
+  max-width:480px;
+  height:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:clamp(3px,.7vh,10px);
+  overflow:hidden;
+  padding:
+    max(12px,env(safe-area-inset-top))
+    18px
+    max(12px,env(safe-area-inset-bottom));
+}
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.identity{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  min-width:0;
+}
+.logo{
+  width:clamp(60px,10vh,86px);
+  height:clamp(60px,10vh,86px);
+  flex-shrink:0;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  border:3px solid var(--green);
+  border-radius:50%;
+  background:linear-gradient(135deg,#13805d,#183c32);
+  box-shadow:0 0 0 4px #d9efe3;
+}
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.logo span{
+  display:none;
+  color:#fff;
+  font-size:23px;
+  font-weight:950;
+}
+.brand h2{
+  margin:0;
+  font-size:clamp(19px,5.2vw,26px);
+  font-weight:950;
+  letter-spacing:-.5px;
+  line-height:1.1;
+}
+.brand h2 span{color:var(--green)}
+.brand p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:clamp(9px,2.5vw,11px);
+  font-weight:750;
+  letter-spacing:.5px;
+}
+.header-symbol{
+  flex-shrink:0;
+  color:var(--green);
+  font-size:28px;
+  font-weight:900;
+}
+.rule{
+  height:3px;
+  width:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--green) 0%,var(--green) 42%,#d9e9de 42%);
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--green);
+  font-size:clamp(9px,2.6vw,11px);
+  font-weight:950;
+  letter-spacing:.8px;
+}
+.eyebrow:before{
+  content:"";
+  width:8px;
+  height:8px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:var(--green2);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(34px,10.3vw,53px);
+  line-height:1.04;
+  font-weight:950;
+  letter-spacing:-1.7px;
+}
+.hero h1 span{color:var(--green)}
+.hero h2{
+  margin:9px 0 0;
+  font-size:clamp(13px,3.6vw,17px);
+  font-weight:800;
+}
+.hero p{
+  margin:9px 0 0;
+  max-width:410px;
+  color:var(--muted);
+  font-size:clamp(10px,2.9vw,12px);
+  line-height:1.55;
+}
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  font-size:clamp(10px,2.8vw,12px);
+  font-weight:950;
+}
+.section-head span{
+  color:var(--green);
+  font-size:10px;
+}
+.learning{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.tile{
+  min-width:0;
+  padding:12px 10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#ffffffdc;
+}
+.tile:nth-child(2){
+  background:#eaf7ef;
+}
+.tile:nth-child(3){
+  background:#edf4f0;
+}
+.tile:nth-child(4){
+  background:#ffffffdc;
+}
+.tile .num{
+  display:block;
+  margin-bottom:6px;
+  color:var(--green);
+  font-size:11px;
+  font-weight:950;
+}
+.tile b{
+  display:block;
+  font-size:clamp(10px,2.9vw,12px);
+  line-height:1.35;
+}
+.tile p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:clamp(9px,2.4vw,10px);
+  line-height:1.35;
+}
+.cta{
+  width:100%;
+  min-height:clamp(60px,9vh,78px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 6px;
+  border-radius:12px;
+  background:linear-gradient(110deg,#06734f,#0da875,#087e58);
+  color:#fff;
+  font-size:clamp(13px,4.1vw,21px);
+  font-weight:950;
+  letter-spacing:-.45px;
+  text-decoration:none;
+  text-align:center;
+  white-space:nowrap;
+  box-shadow:0 0 24px #10a57560,0 8px 23px #087e5833;
+  animation:glow 2.8s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{box-shadow:0 0 14px #10a57555}
+  50%{box-shadow:0 0 33px #10a57590}
+}
+.cta:focus-visible{
+  outline:3px solid var(--ink);
+  outline-offset:3px;
+}
+.timer{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.count{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border:2px solid #a9d9be;
+  border-radius:50%;
+  background:#e5f5ec;
+  color:var(--green);
+  font-size:17px;
+  font-weight:950;
+  font-variant-numeric:tabular-nums;
+}
+.timer-info{text-align:left}
+.timer-info b{
+  display:block;
+  font-size:clamp(10px,2.8vw,12px);
+}
+.timer-info span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+}
+.free{
+  margin:0;
+  color:var(--muted);
+  text-align:center;
+  font-size:clamp(10px,2.7vw,12px);
+}
+.disclaimer{
+  padding:10px 11px;
+  border-left:3px solid var(--green);
+  border-radius:7px;
+  background:#e9f1ec;
+  color:#576c61;
+  font-size:clamp(9px,2.4vw,10px);
+  line-height:1.4;
+}
+.disclaimer p{margin:0}
+.disclaimer strong{color:#075d41}
+@media(max-height:760px){
+  .shell{padding:8px 14px;gap:3px}
+  .logo{width:50px;height:50px}
+  .brand h2{font-size:17px}
+  .brand p{font-size:9px;margin-top:2px}
+  .hero h1{font-size:31px}
+  .hero h2{font-size:12px;margin-top:4px}
+  .hero p{font-size:10px;margin-top:4px}
+  .learning{gap:5px}
+  .tile{padding:7px 8px}
+  .tile .num{margin-bottom:3px}
+  .tile b{font-size:10px}
+  .tile p{margin-top:3px;font-size:9px}
+  .cta{min-height:52px}
+  .count{width:30px;height:30px;font-size:14px}
+  .disclaimer{padding:6px 8px;font-size:9px;line-height:1.3}
+}
+@media(max-height:600px){
+  .logo{width:40px;height:40px}
+  .brand h2{font-size:14px}
+  .brand p{font-size:8px}
+  .hero h1{font-size:25px}
+  .hero h2{font-size:10px}
+  .hero p{font-size:9px}
+  .section-head{font-size:9px}
+  .tile{padding:4px 6px}
+  .tile .num{font-size:9px}
+  .tile b{font-size:9px}
+  .tile p{font-size:8px}
+  .cta{min-height:45px}
+  .free{font-size:9px}
+  .disclaimer{font-size:8px;line-height:1.2}
+}
+@media(prefers-reduced-motion:reduce){
+  .cta{animation:none}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+<main class="shell">
+
+  <header class="header">
+    <div class="identity">
+      <div class="logo">
+        <img
+          src="gautam123.jpg"
+          alt="Gautam Jha"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span aria-hidden="true">GJ</span>
+      </div>
+
+      <div class="brand">
+        <h2>GAUTAM <span>JHA</span></h2>
+        <p>STOCK MARKET EDUCATION</p>
+      </div>
+    </div>
+
+    <span class="header-symbol" aria-hidden="true">✳</span>
+  </header>
+
+  <div class="rule"></div>
+
+  <div class="eyebrow">
+    FREE FINANCIAL LEARNING COMMUNITY
+  </div>
+
+  <section class="hero">
+    <h1>
+      THINK<br>
+      <span>BEYOND</span><br>
+      THE CHART.
+    </h1>
+
+    <h2>Understand Markets Through Knowledge</h2>
+
+    <p>
+      Explore market fundamentals, financial literacy
+      and responsible investing concepts through
+      educational resources designed for curious learners.
+    </p>
+  </section>
+
+  <div class="section-head">
+    LEARNING AREAS
+    <span>01 — 04</span>
+  </div>
+
+  <section class="learning" aria-label="Educational topics">
+
+    <div class="tile">
+      <span class="num">01 / FOUNDATIONS</span>
+      <b>How Stock Markets Work</b>
+      <p>Explore exchanges, stocks and indices.</p>
+    </div>
+
+    <div class="tile">
+      <span class="num">02 / ANALYSIS</span>
+      <b>Understanding Price Charts</b>
+      <p>Learn basic chart concepts and terminology.</p>
+    </div>
+
+    <div class="tile">
+      <span class="num">03 / AWARENESS</span>
+      <b>Financial Risk Essentials</b>
+      <p>Understand uncertainty and capital risk.</p>
+    </div>
+
+    <div class="tile">
+      <span class="num">04 / MINDSET</span>
+      <b>Research &amp; Decision-Making</b>
+      <p>Explore disciplined learning habits.</p>
+    </div>
+
+  </section>
+
+  <a
+    class="cta"
+    id="joinBtn"
+    href="https://t.me/+p3qJViE0EP5jYjc9">
+    JOIN FREE TELEGRAM CHANNEL
+  </a>
+
+  <div class="timer">
+    <span class="count" id="seconds">10</span>
+    <div class="timer-info" id="timerText">
+      <b>Opening Learning Community</b>
+      <span>Automatic redirect in 10 seconds</span>
+    </div>
+  </div>
+
+  <p class="free">
+    Free to Join • Educational Content • Leave Anytime
+  </p>
+
+  <section class="disclaimer">
+    <p>
+      <strong>Educational Disclaimer:</strong>
+      This page provides general educational
+      information only. It is not personalized
+      investment advice or a recommendation
+      to buy or sell securities.
+      Trading and investing involve financial risk,
+      including possible capital loss.
+      No returns or outcomes are guaranteed.
+    </p>
+  </section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  const destination="https://t.me/+p3qJViE0EP5jYjc9";
+  const button=document.getElementById("joinBtn");
+  const seconds=document.getElementById("seconds");
+  const timerText=document.getElementById("timerText");
+
+  const STORAGE_KEY="gautam_jha_subscribe_2231594831102088";
+  const COOLDOWN=30*60*1000;
+
+  let stopped=false;
+  let subscribeSent=false;
+  let interval=null;
+
+  const deadline=performance.now()+10000;
+
+  function stopTimer(){
+    stopped=true;
+    if(interval!==null){
+      clearInterval(interval);
+      interval=null;
+    }
+  }
+
+  function canTrackSubscribe(){
+    if(subscribeSent)return false;
+
+    try{
+      const last=Number(sessionStorage.getItem(STORAGE_KEY));
+
+      if(
+        Number.isFinite(last)&&
+        last>0&&
+        Date.now()-last<COOLDOWN
+      ){
+        return false;
+      }
+    }catch(error){}
+
+    return true;
+  }
+
+  function markSubscribe(){
+    subscribeSent=true;
+
+    try{
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        String(Date.now())
+      );
+    }catch(error){}
+  }
+
+  function updateCountdown(){
+    if(stopped)return;
+
+    const remaining=Math.max(
+      0,
+      Math.ceil((deadline-performance.now())/1000)
+    );
+
+    seconds.textContent=remaining;
+
+    if(remaining===0){
+      stopTimer();
+      timerText.textContent="Opening Telegram Channel...";
+      window.location.assign(destination);
+    }
+  }
+
+  button.addEventListener("click",function(event){
+    if(event.defaultPrevented)return;
+
+    if(
+      event.ctrlKey||
+      event.metaKey||
+      event.shiftKey||
+      event.altKey||
+      (event.button!==0&&event.detail!==0)
+    ){
+      return;
+    }
+
+    stopTimer();
+
+    if(canTrackSubscribe()){
+      markSubscribe();
+
+      try{
+        if(typeof fbq==="function"){
+          fbq("track","Subscribe");
+        }
+      }catch(error){}
+    }
+  });
+
+  interval=setInterval(updateCountdown,200);
+  updateCountdown();
+
+  window.addEventListener("pagehide",stopTimer);
+})();
+</script>
+</body>
+</html>
